@@ -5,7 +5,7 @@ import {firebaseConfig} from './config/config.js';
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
       <h1>Ayeeee</h1>
     </div>
   );
