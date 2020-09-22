@@ -1,0 +1,63 @@
+// Override default variables before the import
+$enable-rounded: false;
+
+// pallete: https://coolors.co/343a40-eeba0b-c97b84-f0f7f4-e3170a
+$theme-colors: (
+    "light": #F0F7F4,
+    "dark": #343a40,
+    "primary": #EEBA0B,
+    "danger": #E3170A,
+);
+$body-bg: #F0F7F4;
+
+// Import Bootstrap and its default variables
+@import '~bootstrap/scss/bootstrap.scss';
+
+// Import fonts
+@import url('https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@300&display=swap');
+
+.navbar{
+    .navbar-brand{
+        font-family: 'Saira Condensed', sans-serif;
+        font-weight: 300;
+        letter-spacing: 4px;
+    }
+    .form-inline{
+        .btn{
+            display: none;
+            border: none;
+        }
+        .form-control{
+            width: auto;
+            background: none;
+            border: none;
+            border-bottom: solid 1px lighten(theme-color("dark"), 5%);
+            &:focus{
+                box-shadow: none;
+                border-color: theme-color("light");
+                border-bottom: solid 1px theme-color("light");
+                color: theme-color("light");
+                ~ .btn{
+                    border-bottom: solid 1px theme-color("light");
+                    display: block;
+                }
+            }
+        }
+    }
+    .dropdown-item{
+        &:hover{
+            background-color: theme-color("dark");
+            color: theme-color("light");
+        }
+        &:active{
+            background-color: lighten(theme-color("dark"), 25%);
+        }
+    }
+    .navbar-toggler{
+        //This is the mobile button
+        border: none;
+        &:focus{
+            outline: none;
+        }
+    }
+}
