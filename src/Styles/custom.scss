@@ -15,6 +15,7 @@ $body-bg: #F0F7F4;
 
 // Import fonts
 @import url('https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
 .navbar{
     .navbar-brand{
@@ -25,7 +26,12 @@ $body-bg: #F0F7F4;
     .form-inline{
         .btn{
             display: none;
-            border: none;
+            border-color: transparent;
+            border-bottom: 1px solid theme-color("ligt");
+            border-left: none;
+            i{
+                font-size: inherit;
+            }
         }
         .form-control{
             width: auto;
@@ -35,10 +41,8 @@ $body-bg: #F0F7F4;
             &:focus{
                 box-shadow: none;
                 border-color: theme-color("light");
-                border-bottom: solid 1px theme-color("light");
                 color: theme-color("light");
                 ~ .btn{
-                    border-bottom: solid 1px theme-color("light");
                     display: block;
                 }
             }
