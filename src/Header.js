@@ -1,6 +1,8 @@
 import React from "react";
 import "./Styles/custom.scss";
 
+import SearchBar from "./Components/SearchBar.js"
+
 class Header extends React.Component {
   render() {
     return (
@@ -25,21 +27,9 @@ class Header extends React.Component {
 
         {/* Navbar collapsable section */}
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
+
           {/* Search */}
-          <form className="form-inline my-2 mx-lg-3 m-0">
-            <input
-              className="form-control"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button
-              className="btn btn-outline-light my-2 my-sm-0"
-              type="submit"
-            >
-                <i className="material-icons">search</i>
-            </button>
-          </form>
+          <SearchBar />
 
           {/* Links */}
           <ul className="navbar-nav ml-auto mr-lg-3">
@@ -50,7 +40,8 @@ class Header extends React.Component {
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#">
-                Cart
+                <i className="material-icons">shopping_cart</i>
+                0
               </a>
             </li>
             <li className="nav-item dropdown">
