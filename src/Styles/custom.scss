@@ -1,11 +1,12 @@
 // Override default variables before the import
 $enable-rounded: false;
 
-// pallete: https://coolors.co/343a40-eeba0b-c97b84-f0f7f4-e3170a
+// pallete: https://coolors.co/343a40-eeba0b-49a078-f0f7f4-e3170a
 $theme-colors: (
     "light": #F0F7F4,
     "dark": #343a40,
     "primary": #EEBA0B,
+    "success": #49A078,
     "danger": #E3170A,
 );
 $body-bg: #F0F7F4;
@@ -24,6 +25,7 @@ $body-bg: #F0F7F4;
         letter-spacing: 4px;
     }
     .form-inline{
+        flex: inherit;
         .btn{
             display: none;
             border-color: transparent;
@@ -34,7 +36,8 @@ $body-bg: #F0F7F4;
             }
         }
         .form-control{
-            width: auto;
+            flex: inherit;
+            max-width: 70%;
             background: none;
             border: none;
             border-bottom: solid 1px lighten(theme-color("dark"), 5%);
@@ -64,4 +67,9 @@ $body-bg: #F0F7F4;
             outline: none;
         }
     }
+}
+
+.welcome-signup-box{
+    background-color: theme-color("primary");
+    background: linear-gradient(135deg, darken(theme-color("primary"), 10%), lighten(theme-color("dark"), 10%) );
 }
