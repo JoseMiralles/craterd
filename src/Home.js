@@ -10,7 +10,7 @@ class Home extends React.Component {
     const authenticated = false;
 
     return (
-      <div className="container-fluid">
+      <div className="container-fluid p-0">
         
         { authenticated ? "" : <WelcomeSignup /> }
 

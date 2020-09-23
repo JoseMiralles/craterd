@@ -15,12 +15,10 @@ $body-bg: #F0F7F4;
 @import '~bootstrap/scss/bootstrap.scss';
 
 // Import fonts
-@import url('https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
 .navbar{
     .navbar-brand{
-        font-family: 'Saira Condensed', sans-serif;
         font-weight: 300;
         letter-spacing: 4px;
     }
