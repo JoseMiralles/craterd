@@ -2,14 +2,15 @@
 $enable-rounded: false;
 
 // pallete: https://coolors.co/343a40-eeba0b-49a078-f0f7f4-e3170a
+$light-color: #F0F7F4;
 $theme-colors: (
-    "light": #F0F7F4,
+    "light": $light-color,
     "dark": #343a40,
     "primary": #EEBA0B,
     "success": #49A078,
     "danger": #E3170A,
 );
-$body-bg: #F0F7F4;
+$body-bg: darken(white, 10%);
 
 // Import Bootstrap and its default variables
 @import '~bootstrap/scss/bootstrap.scss';
@@ -19,7 +20,7 @@ $body-bg: #F0F7F4;
 
 .navbar{
     .navbar-brand{
-        font-weight: 300;
+        font-weight: 350;
         letter-spacing: 4px;
     }
     .form-inline{
@@ -70,4 +71,10 @@ $body-bg: #F0F7F4;
 .welcome-signup-box{
     background-color: theme-color("primary");
     background: linear-gradient(135deg, darken(theme-color("primary"), 10%), lighten(theme-color("dark"), 10%) );
+}
+
+.product-list{
+    .product-item-image{
+        max-height: 60vh;
+    }
 }

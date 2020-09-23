@@ -8,7 +8,7 @@ import Home from "./Home.js";
 function App() {
   return (
 
-    <div className="app bg-light">
+    <div className="app">
       <Header />
       <Home />
     </div>

@@ -8,7 +8,7 @@ class WelcomeSignup extends React.Component {
           <div className="row">
             <div className="col-md-7 p-md-5 mb-2">
               <h1>Welcome</h1>
-              <p>We are the #1 providers of wholesale asteroid ore and asteroid refined metals in all 9 sectors!</p>
+              <p>We are the number one providers of wholesale raw asteroid ore and asteroid refined metals in all 9 sectors!</p>
               <button className="btn btn-outline-light px-4" type="submit">
                 Sign Up
               </button>

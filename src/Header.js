@@ -8,7 +8,7 @@ class Header extends React.Component {
     return (
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         {/* Branding */}
-        <a className="navbar-brand ml-lg-5" href="#">
+        <a className="navbar-brand ml-lg-5 ml-2 mr-5" href="#">
           CRATERD
         </a>
 
@@ -73,6 +73,7 @@ class Header extends React.Component {
               </div>
             </li>
           </ul>
+          
         </div>
       </nav>
     );
