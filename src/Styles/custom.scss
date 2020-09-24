@@ -74,7 +74,15 @@ $body-bg: darken(white, 10%);
 }
 
 .product-list{
+    max-width: 1500px;
     .product-item-image{
         max-height: 60vh;
+    }
+}
+
+.checkout-section{
+    .checkout-banner{
+        background-color: theme-color("dark");
+        background: linear-gradient(135deg, lighten(theme-color("dark"), 10%), darken(theme-color("dark"), 10%));
     }
 }

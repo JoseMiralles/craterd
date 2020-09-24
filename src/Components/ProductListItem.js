@@ -9,7 +9,7 @@ class ProductListItem extends React.Component {
   render() {
     const product = this.props.product;
     return (
-      <div className="col-lg-3 col-sm-4">
+      <div className="col-xl-3 col-lg-4 col-md-6">
         <div className="row m-sm-3 m-1 bg-light mb-3">
           <div className="col p-0">
             <h5 className="p-4 m-0">{product.title}</h5>
@@ -25,7 +25,7 @@ class ProductListItem extends React.Component {
               <small>$</small>
                 <strong>{product.price.toFixed(2)}</strong>
             </p>
-            <div className="mt-2 mx-4 mb-4">
+            <div className="mt-2 mx-3 mb-3">
               <button className="btn btn-primary p-3 pt-0 w-100">
                 add to cart
               </button>
