@@ -44,7 +44,7 @@ class Header extends React.Component {
               </a>
             </li>
             <li className="nav-item">
-              <Link to="/checkout">
+              <Link to="/cart">
                 <span className="nav-link" href="#">
                  <i className="material-icons">shopping_cart</i>
                  <GetCartCount />

@@ -6,7 +6,7 @@ import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
 import Header from "./Header.js";
 import Home from "./Home.js";
-import Checkout from "./Components/Checkout.js";
+import Cart from "./Components/Cart.js";
 
 function App() {
   return (
@@ -16,8 +16,8 @@ function App() {
 
       <Switch>
 
-        <Route path="/checkout">
-          <Checkout />
+        <Route path="/cart">
+          <Cart />
         </Route>
 
         {/* Default route needs to always be at the bottom. */}

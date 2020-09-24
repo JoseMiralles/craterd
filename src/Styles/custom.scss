@@ -80,8 +80,8 @@ $body-bg: darken(white, 10%);
     }
 }
 
-.checkout-section{
-    .checkout-banner{
+.cart-section{
+    .cart-banner{
         background-color: theme-color("dark");
         background: linear-gradient(135deg, lighten(theme-color("dark"), 10%), darken(theme-color("dark"), 10%));
     }
