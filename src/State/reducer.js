@@ -4,21 +4,21 @@ export const initialState = {
             title: "Gold Raw Ore",
             id: 1,
             img: "https://vignette.wikia.nocookie.net/elderscrolls/images/9/9b/Ore_gold.png/revision/latest?cb=20120513051834",
-            description: "Buy my product!!!!",
+            description: "Gold ore, ready for refinment.",
             price: 3000.50,
         },
         {
             title: "Silver Raw Ore",
             id: 2,
             img: "https://vignette.wikia.nocookie.net/elderscrolls/images/9/9b/Ore_gold.png/revision/latest?cb=20120513051834",
-            description: "Buy my product!!!!",
+            description: "Silver ore, ready for refinment.",
             price: 1000.99,
         },
         {
             title: "Iron Raw Ore",
             id: 3,
             img: "https://vignette.wikia.nocookie.net/elderscrolls/images/9/9b/Ore_gold.png/revision/latest?cb=20120513051834",
-            description: "Buy my product!!!!",
+            description: "Iron ore, ready for refinment.",
             price: 999.50,
         } 
     ],
@@ -36,7 +36,29 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 cart: [...state.cart, action.item],
+            };
+        
+        case "REMOVE_FROM_CART":
+            // Find the index of the first item that matches the given id.
+            const index = state.cart.findIndex(
+                (cartItem) => cartItem.id === action.id
+            );
+            let newCart = [...state.cart];
+            if (index >= 0){
+                newCart.splice(index, 1);
             }
+            else
+            {
+                console.warn(
+                    `Item with id of ${action.id} is not in the cart!`
+                );
+            }
+            return{
+                ...state,
+                cart: newCart,
+            }
+        break;
+
     
         default:
             return state;

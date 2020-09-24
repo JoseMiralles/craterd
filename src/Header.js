@@ -8,7 +8,7 @@ import GetCartCount from "./Components/GetCartCount.js";
 class Header extends React.Component {
   render() {
     return (
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
 
         {/* Branding */}
         <Link to="/">

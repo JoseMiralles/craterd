@@ -19,12 +19,13 @@ function ProductListItem (props) {
                 src={product.img}
               />
             </div>
-            <p className="p-3 m-0">
-              {product.description}
-              <br />
-              <small>$</small>
-                <strong>{product.price.toFixed(2)}</strong>
-            </p>
+                  <p className="pl-3 mb-2 mt-3 m-0">
+                    {product.description}
+                  </p>
+                  <p className="pl-3 m-0">
+                    <small>$</small>
+                      <strong>{product.price.toFixed(2)}</strong>
+                  </p>
             <div className="mt-3 mx-2 mb-2">
               <button onClick={addToCart} className="btn btn-primary p-3 pt-0 w-100">
                 add to cart
