@@ -1,6 +1,7 @@
 import React from "react";
 
 import CartItem from "./CartItem.js"
+import SubTotal from "./SubTotal.js"
 
 class Checkout extends React.Component{
 
@@ -13,13 +14,15 @@ class Checkout extends React.Component{
             <div className="container checkout-section">
                 <div className="row mt-md-3">
                     <div className="checkout-banner col text-light p-5">
-                        <h1>Checkout</h1>
+                        <SubTotal />
                     </div>
                 </div>
                 <div className="row mt-3">
-                    <div className="col p-5">
-                        {mappedItems}
-                    </div>
+                    <div className="col-12 p-3">
+                        <h1>Your cart</h1>
+                        <hr/>
+                    </div> 
+                    {mappedItems}
                 </div>
             </div>
         );

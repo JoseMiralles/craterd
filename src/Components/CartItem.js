@@ -1,9 +1,18 @@
 import React from "react";
 
 class CartItem extends React.Component{
+
+    constructor(props){
+        super(props);
+        this.props = props;
+    }
+
     render(){
+        const product = this.props.product;
         return(
-            <h1>Cart item</h1>
+            <div className="col-md-6">
+                {product.title}
+            </div>
         );
     }
 }

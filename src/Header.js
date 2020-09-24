@@ -2,15 +2,20 @@ import React from "react";
 import "./Styles/custom.scss";
 
 import SearchBar from "./Components/SearchBar.js"
+import {Link} from "react-router-dom";
+import GetCartCount from "./Components/GetCartCount.js";
 
 class Header extends React.Component {
   render() {
     return (
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+
         {/* Branding */}
-        <a className="navbar-brand ml-lg-5 ml-2 mr-5" href="#">
-          CRATERD
-        </a>
+        <Link to="/">
+          <span className="navbar-brand ml-lg-5 ml-2 mr-5" href="#">
+            CRATERD
+          </span>
+        </Link>
 
         {/* Mobile collapsible button */}
         <button
@@ -39,10 +44,12 @@ class Header extends React.Component {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
-                <i className="material-icons">shopping_cart</i>
-                0
-              </a>
+              <Link to="/checkout">
+                <span className="nav-link" href="#">
+                 <i className="material-icons">shopping_cart</i>
+                 <GetCartCount />
+                </span>
+              </Link>
             </li>
             <li className="nav-item dropdown">
               <a
