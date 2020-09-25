@@ -1,13 +1,14 @@
-## Setup
+# Setup
+
+1. Install npm dependencies
 
 > npm install
 
-Then create `config.js` in the '.\config' folder.
+2. Create `config.js` in the '.\config' folder. And populate it:
 
-Populate config.js:
+Ex `config.js`:
 
-Ex file:
-`
+```
 import firebase from "firebase";
 
 const firebaseConfig = {
@@ -23,7 +24,11 @@ const authCraterd = firebase.auth();
 
 // NOTE: make sure to import "auth" from "./config/config.js" (this file), and not from "firebase" when importing this file.
 export {db, authCraterd};
-`
+```
+3. Login to firebase from the CLI.
 
-Lastly
+>firebase login
+
+4. Start the server.
+
 >npm start
