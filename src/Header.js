@@ -48,7 +48,7 @@ function Header() {
           aria-haspopup="true"
           aria-expanded="false"
         >
-          UserName
+          {user?.email}
         </a>
         <div
           className="dropdown-menu dropdown-menu-right"
