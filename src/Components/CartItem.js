@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useStateValue } from "../State/StateProvider";
+
+import $ from "jquery";
 
 function CartItem(props) {
 
@@ -7,7 +9,7 @@ function CartItem(props) {
   const product = props.product;
 
   return (
-    <div className="col-xl-3 col-lg-4 col-md-6">
+    <div className="col-xl-3 col-lg-4 col-md-6 cart-item">
       <div className="row m-sm-3 m-1 bg-light mb-3">
         <div className="col p-0">
           <h5 className="p-4 m-0 bg-dark text-light">{product.title}</h5>
@@ -21,7 +23,7 @@ function CartItem(props) {
           </p>
           <div className="mt-3 mx-2 mb-2">
             <button
-              onClick={removeFromCart}
+              onClick={e => removeFromCart(e)}
               className="btn btn-primary p-3 pt-0 w-100"
             >
               remove from cart
@@ -32,11 +34,19 @@ function CartItem(props) {
     </div>
   );
 
-  function removeFromCart() {
-    dispatch({
-      type: "REMOVE_FROM_CART",
-      id: product.id,
+  function removeFromCart(e) {
+
+  dispatch({
+    type: "REMOVE_FROM_CART",
+    id: product.id,
+  });
+
+/*
+    $(e.target).closest(".cart-item").hide("slow", () => {
+      // Dispatch from here once it's implemented properly to animate.
     });
+*/
+
   }
 }
 
