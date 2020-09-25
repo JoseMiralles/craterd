@@ -10,13 +10,16 @@ function CartItem(props) {
 
   return (
     <div className="col-xl-3 col-lg-4 col-md-6 cart-item">
-      <div className="row m-sm-3 m-1 bg-light mb-3">
+      <div className="row m-sm-3 m-1 bg-light rounded mb-3">
         <div className="col p-0">
-          <h5 className="p-4 m-0 bg-dark text-light">{product.title}</h5>
-          <div className="bg-secondary p-md-4 p-2 text-center w-100">
+          <h6 className="p-3 m-0 text-dark">{product.title}</h6>
+          <hr className="my-0 mx-3"/>
+          <div className="p-md-3 p-3 text-center w-100">
             <img className="mw-100 product-item-image" src={product.img} />
           </div>
-          <p className="pl-3 mb-2 mt-3 m-0">{product.description}</p>
+
+          <div className="bg-dark text-light rounded py-1">
+          <p className="pl-3 mb-1 mt-2 m-0">{product.description}</p>
           <p className="pl-3 m-0">
             <small>$</small>
             <strong>{product.price.toFixed(2)}</strong>
@@ -24,11 +27,13 @@ function CartItem(props) {
           <div className="mt-3 mx-2 mb-2">
             <button
               onClick={e => removeFromCart(e)}
-              className="btn btn-primary p-3 pt-0 w-100"
+              className="btn rounded btn-primary p-3 w-100"
             >
               remove from cart
             </button>
           </div>
+          </div>
+
         </div>
       </div>
     </div>
