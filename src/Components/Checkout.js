@@ -1,5 +1,5 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
-import React from "react";
+import React, { useState } from "react";
 import { useStateValue } from "../State/StateProvider";
 import GetCartPriceTotal from "./GetCartPriceTotal";
 
@@ -8,6 +8,9 @@ export default function Checkout(){
     const [{cart, user}, dispatch] = useStateValue();
     const stripe = useStripe();
     const elements = useElements();
+
+    const [error, setError] = useState(null);
+    const [disabled, setDisabled] = useState(null);
 
     const mappedCartItems = cart.map((item) => {
         return (
@@ -22,9 +25,19 @@ export default function Checkout(){
         );
     });
 
+    const handleCardChange = (e) => {
+        setDisabled(e.empty);
+        setError(e.error ? e.error.message : "");
+    };
+
+    const handleSubmit = e => {
+
+    }
+
     return (
       <div className="container bg-white p-md-5 p-4 mt-md-5 checkout-section">
         <div className="row">
+
           <div className="col-12">
             <span>
               <h1>Checkout</h1>
@@ -54,11 +67,18 @@ export default function Checkout(){
                   <p className="p-0 m-0">1234 Demo dr.</p>
                   <p className="p-0 m-0">DemoTown, VA</p>
           </div>
+            
+          <div className="col-12 mt-5">
+            <span>
+              <h1>Payment</h1>
+              <hr />
+            </span>
+          </div>
 
           <div className="col-md-6 bg-light offset-md-3 p-5 mt-5 border rounded">
-              <form>
+              <form onSubmit={handleSubmit}>
                   <h6 className="mb-4">Payment Details</h6>
-                  <CardElement />
+                  <CardElement onChange={handleCardChange} />
                   <button className="btn btn-primary w-100 mt-4">place order</button>
               </form>
           </div>
