@@ -12,11 +12,7 @@ function Cart() {
 
   return (
     <div className="container cart-section">
-      <div className="row mt-md-3">
-        <div className="cart-banner col text-light p-5">
-          <SubTotal />
-        </div>
-      </div>
+      <SubTotal />
       <div className="row mt-3">
         <div className="col-12 p-3">
           <h1>Your cart</h1>

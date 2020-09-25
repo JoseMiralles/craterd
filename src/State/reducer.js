@@ -22,6 +22,7 @@ export const initialState = {
             price: 999.50,
         } 
     ],
+    user: null,
 };
 
 // Gets the total price of the items in the cart.
@@ -57,7 +58,13 @@ const reducer = (state, action) => {
                 ...state,
                 cart: newCart,
             }
-        break;
+            
+        case "SET_USER":
+            // Set user state as authenticated.
+            return {
+                ...state,
+                user: action.user
+            };
 
     
         default:

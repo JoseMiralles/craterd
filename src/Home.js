@@ -2,25 +2,20 @@ import React from "react";
 
 import WelcomeSignup from "./Components/WelcomeSignup.js"
 import ProductList from "./Components/ProductList.js";
+import { useStateValue } from "./State/StateProvider.js";
+import SubTotal from "./Components/SubTotal.js";
 
-class Home extends React.Component {
+function Home() {
 
-  render() {
+  const [{user}, dispatch] = useStateValue();
 
-    const authenticated = false;
+  return (
+    <div className="container-fluid p-0">
+      {user ? <br/> : <WelcomeSignup />}
 
-    return (
-      <div className="container-fluid p-0">
-        
-        { authenticated ? "" : <WelcomeSignup /> }
-
-        <ProductList />
-
-      </div>
-    );
-  }
-
-  componentDidMount() {}
+      <ProductList />
+    </div>
+  );
 }
 
 export default Home;
