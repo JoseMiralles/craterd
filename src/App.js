@@ -13,13 +13,9 @@ import Checkout from "./Components/Checkout";
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 
-
-
 function App() {
 
   const [{}, dispatch] = useStateValue();
-
-  
 
   useEffect(() => {
     authCraterd.onAuthStateChanged((authUser) => {
@@ -55,7 +51,9 @@ function App() {
         </Route>
 
         <Route path="/checkout">
-          <Checkout />
+          <Elements stripe={ loadStripe(stripeKeys.public) }>
+            <Checkout/>
+          </Elements>
         </Route>
 
         {/* Default route needs to always be at the bottom. */}
