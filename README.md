@@ -1,10 +1,10 @@
 # Setup
 
-1. Install npm dependencies
+### Install npm dependencies
 
 > npm install
 
-2. Create `config.js` in the '.\config' folder. And populate it:
+### Create `config.js` in the '.\config' folder. And populate it:
 
 Ex `config.js`:
 
@@ -25,10 +25,23 @@ const authCraterd = firebase.auth();
 // NOTE: make sure to import "auth" from "./config/config.js" (this file), and not from "firebase" when importing this file.
 export {db, authCraterd};
 ```
-3. Login to firebase from the CLI.
+
+### Start the server.
+
+>npm start
+
+# Publishing
+
+### Login to firebase from the CLI. And then initialize.
 
 >firebase login
 
-4. Start the server.
+>firebase init
+- Select hosting.
+- Select project.
+- Name the directory, 'build'
+- Say `y` to the prompt asking if this should be a single page app.
 
->npm start
+>npm run build
+
+>firebase deploy

@@ -24,3 +24,6 @@ yarn-error.log*
 
 # Keys and stuff.
 config.js
+
+#firebase
+/.firebase
