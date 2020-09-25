@@ -34,6 +34,19 @@ export default function Login() {
       .catch(error => alert(error.message));
   }
 
+  const handleDemoButton = e => {
+    e.preventDefault();
+
+    // Login with firebase using demo creds.
+    authCraterd.signInWithEmailAndPassword("demo@demo.com", "123456")
+    .then(auth => {
+        if (auth){
+            history.push("/");
+        }
+    })
+    .catch(error => alert(error.message));
+  };
+
   return (
     <div className="container mt-3">
       <div className="row p-3">
@@ -69,7 +82,7 @@ export default function Login() {
 
             <button className="btn mb-3 btn-primary w-100" type="submit" onClick={handleLoginButton}>login</button>
 
-            <button className="btn mb-3 btn-primary w-100">demo</button>
+            <button className="btn mb-3 btn-primary w-100" onClick={handleDemoButton}>demo</button>
 
             <button className="btn btn-outline-dark w-100" onClick={handleRegisterButton}>
               create account

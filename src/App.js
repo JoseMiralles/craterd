@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import './App.css';
 
-import {authCraterd, firebaseConfig} from './config/config.js';
+import {authCraterd, firebaseConfig, stripeKeys} from './config/config.js';
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
 import Header from "./Header.js";
@@ -9,10 +9,17 @@ import Home from "./Home.js";
 import Cart from "./Components/Cart.js";
 import Login from './Components/Login';
 import { useStateValue } from './State/StateProvider';
+import Checkout from "./Components/Checkout";
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
+
+
 
 function App() {
 
   const [{}, dispatch] = useStateValue();
+
+  
 
   useEffect(() => {
     authCraterd.onAuthStateChanged((authUser) => {
@@ -45,6 +52,10 @@ function App() {
 
         <Route path="/cart">
           <Cart />
+        </Route>
+
+        <Route path="/checkout">
+          <Checkout />
         </Route>
 
         {/* Default route needs to always be at the bottom. */}

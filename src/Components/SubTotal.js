@@ -1,10 +1,14 @@
 import React from "react";
 import CurrencyFormat from "react-currency-format";
+import { useHistory } from "react-router-dom";
 
 import GetCartCount from "./GetCartCount.js";
 import GetCartPriceTotal from "./GetCartPriceTotal.js";
 
 function SubTotal() {
+
+  const history = useHistory();
+
   return (
     <div className="row mt-md-3">
       <div className="cart-banner col text-light p-5">
@@ -35,7 +39,7 @@ function SubTotal() {
               thousandSeparator={true}
               prefix={"$"}
             />
-            <button className="btn btn-primary">Proceed to checkout</button>
+            <button onClick={e => history.push("/checkout")} className="btn btn-primary">Proceed to checkout</button>
           </div>
         </div>
       </div>

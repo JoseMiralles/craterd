@@ -11,10 +11,17 @@ Ex `config.js`:
 ```
 import firebase from "firebase";
 
+// Get it from the firebase console.
 const firebaseConfig = {
   apiKey: "...",
   authDomain: "...",
   ...
+};
+
+// Get it from the Stripe dev console.
+export const stripeKeys = {
+  public: "****...",
+  private: "*****..."
 };
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
@@ -22,7 +29,6 @@ const firebaseApp = firebase.initializeApp(firebaseConfig);
 const db = firebaseApp.firestore();
 const authCraterd = firebase.auth();
 
-// NOTE: make sure to import "auth" from "./config/config.js" (this file), and not from "firebase" when importing this file.
 export {db, authCraterd};
 ```
 
