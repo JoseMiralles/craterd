@@ -3,6 +3,8 @@
 ### Install npm dependencies
 
 > npm install
+> cd functions
+> npm install
 
 ### Create `config.js` in the '.\config' folder. And populate it:
 
