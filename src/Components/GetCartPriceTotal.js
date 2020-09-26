@@ -10,5 +10,5 @@ export default function GetCartPriceTotal(){
         total += product.price;
     }
 
-    return total;
+    return total.toFixed(2);
 }

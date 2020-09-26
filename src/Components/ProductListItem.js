@@ -1,4 +1,5 @@
 import React from "react";
+import CurrencyFormat from "react-currency-format";
 import { useStateValue } from "../State/StateProvider";
 
 function ProductListItem (props) {
@@ -22,8 +23,16 @@ function ProductListItem (props) {
     <div className="bg-dark text-light rounded py-1">
     <p className="pl-3 mb-1 mt-2 m-0">{product.description}</p>
     <p className="pl-3 m-0">
-      <small>$</small>
-      <strong>{product.price.toFixed(2)}</strong>
+      <strong>
+      <CurrencyFormat
+                renderText={(value) => value}
+                decimalScale={2}
+                value={product.price.toFixed(2)}
+                displayType={"text"}
+                thousandSeparator={true}
+                prefix={"$"}
+              />
+        </strong>
     </p>
     <div className="mt-3 mx-2 mb-2">
       <button
