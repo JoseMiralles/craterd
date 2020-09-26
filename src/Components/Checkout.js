@@ -5,6 +5,7 @@ import GetCartPriceTotal, { GetCartPriceTotalFromGivenCart } from "./GetCartPric
 import CurrencyFormat from "react-currency-format";
 import axios from "../axios";
 import { useHistory } from "react-router-dom";
+import { db } from "../config/config";
 
 export default function Checkout(){
 
@@ -67,10 +68,28 @@ export default function Checkout(){
           card: elements.getElement(CardElement)
         }
       }).then(({paymentIntent}) => {
+
+        // - Update orders on remote DB.
+        db.collection("users")
+        .doc(user?.uid)
+        .collection("orders")
+        .doc(paymentIntent.id)
+        .set({
+          cart: cart,
+          amount: paymentIntent.amount,
+          created: paymentIntent.created
+        });
+
         // paymentIntent is basically the confirmation.
         setSucceded(true);
         setError(null);
         setProcessing(false);
+
+        //  Empty the basket
+        dispatch({
+          type: "EMPTY_BASKET"
+        });
+
         history.replace("/orders");
       });
 

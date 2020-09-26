@@ -12,6 +12,7 @@ import { useStateValue } from './State/StateProvider';
 import Checkout from "./Components/Checkout";
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
+import Orders from './Components/Orders';
 
 function App() {
 
@@ -54,6 +55,10 @@ function App() {
           <Elements stripe={ loadStripe(stripeKeys.public) }>
             <Checkout/>
           </Elements>
+        </Route>
+
+        <Route path="/orders">
+          <Orders />
         </Route>
 
         {/* Default route needs to always be at the bottom. */}
