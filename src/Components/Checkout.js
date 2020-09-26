@@ -1,9 +1,9 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import React, { useEffect, useState } from "react";
 import { useStateValue } from "../State/StateProvider";
-import GetCartPriceTotal from "./GetCartPriceTotal";
+import GetCartPriceTotal, { GetCartPriceTotalFromGivenCart } from "./GetCartPriceTotal";
 import CurrencyFormat from "react-currency-format";
-import instance from "../axios";
+import axios from "../axios";
 import { useHistory } from "react-router-dom";
 
 export default function Checkout(){
@@ -22,13 +22,15 @@ export default function Checkout(){
     // Re-generate client secret when the cart is changed.
     useEffect(() => {
       const getClientSecret = async () => {
-        const response = await instance({
+        const amount = GetCartPriceTotalFromGivenCart(cart) * 100;
+        const response = await axios({
           method: "post",
           // multiply by 100 since Stripe expects the total in cents, not dollars.
-          url: `/payments/create?total=${GetCartPriceTotal * 100}`
+          url: `/payments/create?total=${amount}`
         });
-        getClientSecret(response.data.clientSecret);
+        setClientSecret(response.data.clientSecret);
       };
+      getClientSecret();
     }, [cart]);
 
     const mappedCartItems = cart.map((item) => {
@@ -69,7 +71,7 @@ export default function Checkout(){
         setSucceded(true);
         setError(null);
         setProcessing(false);
-        history.replaceState("/orders");
+        history.replace("/orders");
       });
 
       //const payload = await stripe();

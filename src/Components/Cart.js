@@ -26,7 +26,6 @@ function Cart() {
 
 function MapCartItems(items) {
   return items.map(function (item) {
-      console.log(item);
     return <CartItem product={item} />;
   });
 }
