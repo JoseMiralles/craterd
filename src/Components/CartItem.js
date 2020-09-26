@@ -6,7 +6,7 @@ import CurrencyFormat from "react-currency-format";
 
 function CartItem(props) {
 
-  const [{basket}, dispatch] = useStateValue();
+  const [{cart}, dispatch] = useStateValue();
   const product = props.product;
 
   return (
@@ -19,7 +19,7 @@ function CartItem(props) {
             <img className="mw-100 product-item-image" src={product.img} />
           </div>
 
-          <div className="bg-dark text-light rounded py-1">
+          <div className="bg-dark text-light rounded py-1 description-wrapper">
           <p className="pl-3 mb-1 mt-2 m-0">{product.description}</p>
           <p className="pl-3 m-0">
             <strong>
@@ -33,7 +33,7 @@ function CartItem(props) {
               />
               </strong>
           </p>
-          <div className="mt-3 mx-2 mb-2">
+          <div className="mt-3 mx-2 mb-2 button-wrapper">
             <button
               onClick={e => removeFromCart(e)}
               className="btn rounded btn-primary p-3 w-100"

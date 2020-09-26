@@ -2,13 +2,14 @@ import React from "react";
 import "./Styles/custom.scss";
 
 import SearchBar from "./Components/SearchBar.js";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import GetCartCount from "./Components/GetCartCount.js";
 import { useStateValue } from "./State/StateProvider";
 import { authCraterd } from "./config/config";
 
 function Header() {
   const [{ user }, dispatch] = useStateValue();
+  const history = useHistory();
 
   function getListItems(){
     let items = [];
@@ -54,14 +55,18 @@ function Header() {
           className="dropdown-menu dropdown-menu-right"
           aria-labelledby="navbarDropdown"
         >
-          <a className="dropdown-item" href="#">
-            Profile
-          </a>
-          <a className="dropdown-item" href="#">
-            Orders
-          </a>
+          <Link to="/orders">
+            <span className="dropdown-item" href="#">
+              Orders
+            </span>
+          </Link>
           <div className="dropdown-divider"></div>
-          <a onClick={()=>{authCraterd.signOut()}} className="dropdown-item" href="#">
+          <a 
+          onClick={()=>{
+            authCraterd.signOut();
+            history.push("/");
+          }}
+          className="dropdown-item" href="#">
             Logout
           </a>
         </div>

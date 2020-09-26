@@ -27,3 +27,4 @@ config.js
 
 #firebase
 /.firebase
+functions/firebase-debug.log

@@ -1,11 +1,13 @@
 import React from "react";
 import CurrencyFormat from "react-currency-format";
+import { useHistory } from "react-router-dom";
 import { useStateValue } from "../State/StateProvider";
 
 function ProductListItem (props) {
 
     // {cart}: target collection.
-    const [{cart}, dispatch] = useStateValue();
+    const [{cart, user}, dispatch] = useStateValue();
+    const history = useHistory();
 
     const product = props.product;
 
@@ -49,18 +51,26 @@ function ProductListItem (props) {
 </div>
     );
 
-    function addToCart(){
-      // Dispatch carted item into the data layer.
-      dispatch({
-        type: "ADD_TO_CART",
-        item: {
-          id: product.id,
-          title: product.title,
-          img: product.img,
-          price: product.price,
-          description: product.description,
-        }
-      });
+    function addToCart() {
+
+      if (user) {
+        // Dispatch carted item into the data layer.
+        dispatch({
+          type: "ADD_TO_CART",
+          item: {
+            id: product.id,
+            title: product.title,
+            img: product.img,
+            price: product.price,
+            description: product.description,
+          },
+        });
+      }
+      else
+      {
+        history.replace("/login");
+      }
+
     }
 
   }

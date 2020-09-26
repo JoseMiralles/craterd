@@ -72,3 +72,8 @@ const instance = axios.create({
 >npm run build
 
 >firebase deploy
+
+### Deploy back end functions
+
+> cd functions
+> firebase deploy --only functions

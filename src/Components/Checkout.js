@@ -87,7 +87,7 @@ export default function Checkout(){
 
         //  Empty the basket
         dispatch({
-          type: "EMPTY_BASKET"
+          type: "EMPTY_CART"
         });
 
         history.replace("/orders");

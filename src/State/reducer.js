@@ -39,11 +39,11 @@ const reducer = (state, action) => {
                 cart: [...state.cart, action.item],
             };
 
-        case "EMPTY_BASKET":
+        case "EMPTY_CART":
             return {
                 ...state,
-                basket: []
-            }
+                cart: [],
+            };
         
         case "REMOVE_FROM_CART":
             // Find the index of the first item that matches the given id.

@@ -90,3 +90,20 @@ $body-bg: darken(white, 10%);
 .checkout-section{
     
 }
+
+.orders-section{
+    .order-row{
+        white-space: nowrap;
+        overflow: scroll;
+        .cart-item{
+            display: inline-block;
+        }
+    }
+
+    .description-wrapper{
+        padding-bottom: 1rem !important;
+    }
+    .button-wrapper{
+        display: none;
+    }
+}
