@@ -49,11 +49,21 @@ In the main directory, in one terminal:
 And in another terminal, in the /functions directory:
 > firebase emulators:start
 
-# Publishing
-
-## Change baseURL in ./src/axios.js to the correct one.
+### Change baseURL in ./src/axios.js to the local API point.
 
 ```
+// Get this from the output in the terminal after running "firebase emulators:start"
+const instance = axios.create({
+    baseURL: "***REMOTE_URL***/api"
+});
+```
+
+# Publishing
+
+### Change baseURL in ./src/axios.js to the remote API point.
+
+```
+// Get this from the "functions" section of the firebase console.
 const instance = axios.create({
     baseURL: "***REMOTE_URL***/api"
 });
@@ -61,17 +71,18 @@ const instance = axios.create({
 
 ### Login to firebase from the CLI. And then initialize.
 
->firebase login
+> firebase login
 
->firebase init
+> firebase init
 - Select hosting.
 - Select project.
 - Name the directory, 'build'
 - Say `y` to the prompt asking if this should be a single page app.
 
->npm run build
+### Build and deploy front end
 
->firebase deploy
+> npm run build
+> firebase deploy --only hosting
 
 ### Deploy back end functions
 
