@@ -3,13 +3,11 @@ import CurrencyFormat from "react-currency-format";
 import { useHistory } from "react-router-dom";
 import { useStateValue } from "../State/StateProvider";
 
-function ProductListItem (props) {
+function ProductListItem ({product}) {
 
     // {cart}: target collection.
     const [{cart, user}, dispatch] = useStateValue();
     const history = useHistory();
-
-    const product = props.product;
 
     return (
 
@@ -18,11 +16,11 @@ function ProductListItem (props) {
   <div className="col p-0">
     <h6 className="p-3 m-0 text-dark">{product.title}</h6>
     <hr className="my-0 mx-3"/>
-    <div className="p-md-3 p-3 text-center w-100">
+    <div className="p-md-3 p-3 text-center w-100 bg-secondary">
       <img className="mw-100 product-item-image" src={product.img} />
     </div>
 
-    <div className="bg-dark text-light rounded py-1">
+    <div className="bg-dark text-light py-1">
     <p className="pl-3 mb-1 mt-2 m-0">{product.description}</p>
     <p className="pl-3 m-0">
       <strong>

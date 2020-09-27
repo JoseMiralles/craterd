@@ -15,11 +15,11 @@ function CartItem(props) {
         <div className="col p-0">
           <h6 className="p-3 m-0 text-dark">{product.title}</h6>
           <hr className="my-0 mx-3"/>
-          <div className="p-md-3 p-3 text-center w-100">
+          <div className="p-md-3 p-3 text-center w-100 bg-secondary">
             <img className="mw-100 product-item-image" src={product.img} />
           </div>
 
-          <div className="bg-dark text-light rounded py-1 description-wrapper">
+          <div className="bg-dark text-light py-1 description-wrapper">
           <p className="pl-3 mb-1 mt-2 m-0">{product.description}</p>
           <p className="pl-3 m-0">
             <strong>
