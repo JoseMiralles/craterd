@@ -1,7 +1,7 @@
 import React from "react";
 import "./Styles/custom.scss";
 
-import SearchBar from "./Components/SearchBar.js";
+// import SearchBar from "./Components/SearchBar.js";
 import { Link, useHistory } from "react-router-dom";
 import GetCartCount from "./Components/GetCartCount.js";
 import { useStateValue } from "./State/StateProvider";
@@ -101,7 +101,7 @@ function Header() {
       {/* Navbar collapsable section */}
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         {/* Search */}
-        <SearchBar />
+        {/* <SearchBar /> */}
 
         {/* Links */}
         <ul className="navbar-nav ml-auto mr-lg-3">
